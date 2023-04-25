@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!--BS5-->
+    <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+<body>
+    <!--navbar-->
+    <nav class="navbar navbar-expand-md bg-dark fixed-top py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html#projects"><i class="bi bi-arrow-left-circle"></i></a>
+        </div>
+    </nav>
+        <!--Project Section-->
+        <section class="sql bg-light ">
+            <div class="container px-2 px-lg-3">
+                <div class="row gx-4 gx-lg-5 mt-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-dark mt-5">YELLEVATE CUSTOMER DISPUTE ANALYSIS</h2>
+                        <hr class="divider bg-primary"/>
+                    </div>
+                    <div class="task">
+                        <p class="text-dark mt-0">
+                            Data cleaning and verification for Yellevate Customer Disputes Analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section><!--END 1st section-->
+        <section class="Query bg-dark">
+           <div class="container ">
+            <div class="row "><!--Top content-->
+                <div class="col-lg">
+                    <div class="bg-dark py-3">
+                        <h5 class="text-center">Goal</h5>
+                        <hr class="divider bg-primary"/>
+                            <div class="m-3">
+                                <p>
+                                    a.	The processing time in which Invoices are settled (average # of days rounded to a whole number).
+                                </p>
+                                <p>
+                                    b.	The processing time for the company to settle disputes (average # of days rounded to a whole number).
+                                </p>
+                                <p>
+                                    c.	Percentage of disputes received by the company that w ere lost (within two decimal places).
+                                </p>
+                                <p>
+                                    d.	Percentage of revenue lost from disputes (within two decimal places).
+                                </p>
+                                <p>
+                                    e.	The country where the company reached the highest losses from lost disputes (in USD).
+                                </p>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-lg">
+                    <div class="bg-dark py-3">
+                        <h5 class="text-center">SQL Query</h5>
+                        <hr class="divider bg-primary"/>
+                            <div class="m-3">
+                                <p>a. SELECT
+                                    ROUND(AVG(days_to_settled)) AS invoice_avg_days_settled
+                                    FROM yellevate_invoices;
+                                </p>
+                                <p> b.SELECT
+                                    ROUND(AVG(days_to_settled)) AS dispute_ave_days_settled
+                                    FROM yellevate_invoices
+                                    WHERE disputed = 1;
+                                </p>
+                                <p>
+                                    c. SELECT (ROUND(100*((SELECT SUM(dispute_lost)
+                                    FROM yellevate_invoices
+                                    WHERE dispute_lost = 1) / 
+                                    (SELECT SUM(disputed)
+                                    FROM yellevate_invoices) ),2)) || '%' AS percent_dispute_lost;
+                                </p>
+                                <p>
+                                    d.SELECT (ROUND(100*(
+                                    (SELECT SUM(invoice_amount_usd)
+                                    FROM yellevate_invoices
+                                    WHERE dispute_lost = 1) / 
+                                    (SELECT SUM(invoice_amount_usd)
+                                    FROM yellevate_invoices)),2)) || '%' AS percent_revenue_lost;
+
+                                </p>
+                                <p>
+                                    e.SELECT country,
+                                    SUM(invoice_amount_usd):: MONEY AS total_losses
+                                    FROM yellevate_invoices
+                                    WHERE dispute_lost = 1
+                                    GROUP BY country
+                                    ORDER BY total_losses DESC;
+
+                                </p>
+                            </div>
+                    </div>
+                </div>
+            </div><!--Top Content end here-->
+            <div class="bg-dark">
+                <h5 class="text-center">Screen Shoot</h5>
+                <hr class="divider bg-primary"/> 
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <p>a.</p>
+                    <img src="Images/sql4.JPG">
+                </div>
+                <div class="col m-3">
+                    <p>b.</p>
+                    <img src="Images/sql5.JPG">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <p>c.</p>
+                    <img src="Images/sql6.JPG">
+                </div>
+                <div class="col m-3">
+                    <p>d.</p>
+                    <img src="Images/sql7.JPG">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col m-3">
+                    <p>e.</p>
+                    <img src="Images/sql8.JPG">
+                </div>
+            </div>
+            </div>
+        </div>
+        </section><!--End Query SS here-->
+        <section class="Sample query"><!--Other Query sample-->
+            <div class="container px-2 px-lg-3">
+                <div class="row gx-4 gx-lg-5 mt-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-dark mt-5">Some of my other sample query</h2>
+                        <hr class="divider bg-primary"/>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col m-3">
+                        <p class="text-dark">1. --EARNED TOTAL REVENUE FROM 2020 TO 2021, GET THEIR PERCENTAGE ALSO.
+                            * EXPECTED OUTPUT:  4 COLUMNS
+                            * 2020, 2021,  </p>
+                    </div>
+                    <div class="">
+                        <img src="Images/sql9.JPG">
+                    </div>
+                </div>
+                <div class="">
+                    <div class="col">
+                        <p class="text-dark">2. A single select statement with regard to following,  </p>
+                        <li class="text-dark">Unique show_id</li>
+                        <li class="text-dark">Make each word in director and country columns start with a capital letter</li>
+                        <li class="text-dark">Concatenate rating_1 and rating_2 with'-' between into a single column and name it as rating</li>
+                        <li class="text-dark">add title_type conditional column from the previous task to your select statement</li >
+                        <li class="text-dark">You have noticed that we have our month_added coded with integers make it reading-friendly using conditional case structure, so that 1 turn jan, 2 turns feb etc.</li>
+                    </div>
+                    <div class="">
+                        <img src="Images/sql10.JPG">
+                    </div>
+                </div>
+            </div>        
+        </section>
+        <section class="bg-dark mt-3">
+        <footer id="footer">
+            <div class="row container py-2">
+              <div class="copyright">
+                &copy; Copyright <strong><span></span></strong>
+              </div>
+              <div class="col-md credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
+                Designed by <a style="text-decoration: none;"href="https://www.facebook.com/daavviidd21">Dave</a>
+              </div>
+            </div>
+          </footer><!-- End  Footer -->
+          </section>
+        <!--JS-->
+        <script src="JS/bootstrap.min.js"></script>
+
+</body>
+</html>

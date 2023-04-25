@@ -1,0 +1,243 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    color: #FFFFFF;
+}
+/*--Body*/
+body{
+    background:linear-gradient(to bottom #0e2975, #000c32);
+}
+/*--Home*/
+header{
+    background-image: url('YES-DADDY.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    flex-direction: column;
+}
+.banner .btn:hover{
+    background-color: white;
+    color: black;
+}
+h2{
+    color: #11FFE7;
+}
+p{
+    margin-top: 28px;
+}
+.hero{
+    padding-top: 270px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.nav-link{
+    color: white;
+    font-size: 20px;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.navbar-brand{
+    color: white;   
+    font-size: 20px;
+    margin-left: 50px;
+}
+#navbarNav{
+    justify-content: end; 
+}
+
+.btn{
+    width: 184px;
+    border-radius: 20px;
+    height: 45px;
+    font-size: 20px;
+    border-radius: 20px;
+}
+/*.page-section{
+    height: 60vh;
+
+}*/
+hr{
+    height: 10rem;
+    max-width: 10.25rem;
+    margin: 1.5rem auto;
+    background-color: #000c32;
+    opacity: 1;
+}
+/*--SKILLS*/
+
+.progress {
+    height: 40px;
+    display: block;
+    background: none;
+    border-radius: 0;
+  }
+  
+  .progress .skill {
+    padding: 0;
+    margin: 0 0 6px 0;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    color: white;
+  }
+  
+  .progress .skill .val {
+    float: right;
+    font-style: normal;
+  }
+  
+  .progress-bar-wrap {
+    background:#FBFAF2;
+    height: 10px;
+  }
+  
+  .progress-bar {
+    width: 1px;
+    height: 10px;
+    transition: 0.9s;
+    background-color: #0e2975;
+  }
+  /*Portfolio/project */
+
+.col{
+    padding-bottom: 30px;
+}
+.card-title{
+    color: black;
+}
+.card-text{
+    color: black;
+}
+.h1 .bi{
+    color: black;
+}
+.card{
+    background-color: #FBFAF2;
+    border-top: solid;
+    border-top-color: #0e2975;
+    border-bottom: solid;
+    border-bottom-color: #0e2975;
+    border-left: 0px;
+    border-right: 0px;
+}
+/*card hover*/
+.card .btn:hover{
+    color: black;
+    background-color: #11FFE7;
+}
+
+.card:hover{
+    background-color: #FBFAF2;
+    border-top: solid;
+    border-top-color: whitesmoke;
+    border-bottom: solid;
+    border-bottom-color: whitesmoke;
+    border-left: 0px;
+    border-right: 0px;
+    
+}
+
+.h5 .bi{
+    color:#0e2975;
+}
+
+/*Procject-excel*/
+.row img{
+    height: 400px;
+    width: 550px;
+}
+.download{
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    color: whitesmoke;
+    background-color: #0e2975;
+}
+.download:hover{
+    background-color: #11FFE7;
+    color: black;
+    border: 0px;
+}
+/*Project-PBI*/
+.img {
+    height: 300px;
+    width: 350px;
+}
+.img img{
+    height: 280px;
+    width: 340px;
+}
+
+.img2{
+    height: 450px;
+    width: 430px;
+}
+.img2 img{
+    height: 400px;
+    width: 400px;
+}
+/*Project-Sql*/
+.m-3 img{
+    height: 250px;
+    width: 300px;
+}
+/*Contact*/
+.contact{
+    background-color: #FBFAF2;
+    border-top: solid;
+    border-top-color: #0e2975;
+    border-bottom: solid;;
+    border-bottom-color: #0e2975;
+}
+/*Contacts-ICON*/
+.icon{
+    justify-content: center;
+    height: 50px;
+    width: 100px;
+    display: flex
+}
+
+.icon .bi{
+    color:#0e2975;
+        height: 50px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat-x(3, 1fr);
+    grid-gap: 4rem 3rem;
+}
+.row .icon .bi{
+    cursor: pointer;
+    font-size: 40px;
+    padding: .5rem 2rem;
+    border-radius: 100%;
+    background-image: linear-gradient(to bottom #0e2975, #000c32);
+    background-size: 200%;
+}
+.row .icon .bi:hover{
+    color: #11FFE7;
+}
+/*Project Footer */
+.icon2{
+    justify-content: end;
+height: 50px;
+width: 100px;
+display: flex;
+}
+.icon2 .bi{
+color:whitesmoke;
+height: 50px;
+width: 100px;
+justify-content: center;
+align-items: center;
+display: grid;
+grid-template-columns: repeat-x(3, 1fr);
+grid-gap: 4rem 3rem;
+}
+.row .icon2 .bi:hover{
+color: #11FFE7;
+}
